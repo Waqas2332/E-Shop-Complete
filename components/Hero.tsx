@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 function Hero() {
   return (
     <main className={`${styles.main} flex flex-col justify-center`}>
-      <div className="container ps-16 w-[55%] max-lg:w-full max-md:ps-0 max-md:text-center">
+      <div className="container flex flex-col justify-center items-center ps-16 w-[55%] max-lg:w-full max-md:ps-0 max-md:text-center">
         <h1 className="text-6xl text-white font-extrabold font-sans max-md:text-3xl ">
           Discover Your Perfect Style at UShop
         </h1>
@@ -13,7 +13,9 @@ function Hero() {
           timeless classics, and everything in between. Shop with confidence and
           elevate your wardrobe today!
         </p>
-        <button className="btn mt-4">Shop Now</button>
+        <button className="btn mt-4 self-start max-md:self-center">
+          Shop Now
+        </button>
       </div>
     </main>
   );

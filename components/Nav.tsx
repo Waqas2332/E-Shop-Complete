@@ -90,7 +90,7 @@ export default function Nav() {
                 ))}
               </div>
               <div className="py-6">
-                <a href="#" className="btn-indigo">
+                <a href="#" className="btn">
                   Log in
                 </a>
               </div>

@@ -69,7 +69,7 @@ function Footer() {
             >
               @Waqas_Munir232
             </a>
-            All Rights Reserved
+            &nbsp; All Rights Reserved
           </p>
         </div>
       </div>

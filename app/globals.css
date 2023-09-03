@@ -18,25 +18,24 @@
   background: hsla(136, 100%, 35%, 1);
 
   background: linear-gradient(
-    135deg,
-    hsla(136, 100%, 35%, 1) 3%,
-    hsla(175, 44%, 20%, 1) 100%
+    360deg,
+    hsla(136, 100%, 35%, 1) 0%,
+    hsla(176, 43%, 20%, 1) 100%
   );
 
   background: -moz-linear-gradient(
-    135deg,
-    hsla(136, 100%, 35%, 1) 3%,
-    hsla(175, 44%, 20%, 1) 100%
+    360deg,
+    hsla(136, 100%, 35%, 1) 0%,
+    hsla(176, 43%, 20%, 1) 100%
   );
 
   background: -webkit-linear-gradient(
-    135deg,
-    hsla(136, 100%, 35%, 1) 3%,
-    hsla(175, 44%, 20%, 1) 100%
+    360deg,
+    hsla(136, 100%, 35%, 1) 0%,
+    hsla(176, 43%, 20%, 1) 100%
   );
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00B530", endColorstr="#1D4A46", GradientType=1 );
-
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00B330", endColorstr="#1D4946", GradientType=1 );
   width: 100px;
   height: 40px;
   display: flex;
