@@ -22,12 +22,12 @@ export default function Nav() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="-m-1.5 p-1.5 text-2xl font-mono font-extrabold"
           >
             UShop
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
