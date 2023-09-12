@@ -8,7 +8,7 @@ export const signup = createAsyncThunk(
     try {
       const response = await axios.post("/api/auth/signup", data);
       return response.data.message;
-    } catch (error) {
+    } catch (error: any) {
       throw error?.response?.data.message;
     }
   }
