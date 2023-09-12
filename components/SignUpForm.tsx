@@ -32,16 +32,17 @@ function SignUpForm() {
 
   useEffect(() => {
     if (success) {
+      toast.success(message);
       router.push("/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, success]);
 
   useEffect(() => {
-    if (message) {
-      toast.success(message);
+    if (error) {
+      toast.error(error);
     }
-  }, [dispatch, message]);
+  }, [dispatch, error]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
