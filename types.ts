@@ -1,6 +1,8 @@
 export type authInitialState = {
   isLoading: boolean;
-  status: string;
-  error: string | null;
+  success: boolean;
+  message: string;
   isAuth: boolean;
+  statusCode: number;
+  error: string;
 };

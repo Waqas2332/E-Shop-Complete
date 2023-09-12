@@ -1,6 +1,11 @@
+"use client";
+
+import { useAppSelector } from "@/redux/hooks";
 import styles from "./Hero.module.css";
 
 function Hero() {
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  console.log(isAuth);
   return (
     <main className={`${styles.main} flex flex-col justify-center`}>
       <div className="container flex flex-col justify-center items-center ps-16 w-[55%] max-lg:w-full max-md:ps-0 max-md:text-center">

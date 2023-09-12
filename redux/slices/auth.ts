@@ -3,10 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { signup } from "../actions/auth";
 
 const initialState: authInitialState = {
-  status: "idle",
+  success: false,
   isLoading: false,
-  error: null,
+  message: "",
   isAuth: false,
+  statusCode: 0,
+  error: "",
 };
 
 const authSlice = createSlice({
@@ -16,13 +18,23 @@ const authSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(signup.pending, (state) => {
-        state.status = "active";
         state.isLoading = true;
+        state.message = "";
+        state.error = "";
       })
-      .addCase(signup.fulfilled, (state) => {
-        state.status = "idle";
+      .addCase(signup.fulfilled, (state, action) => {
+        state.success = true;
         state.isLoading = false;
         state.isAuth = true;
+        state.error = "";
+        state.message = action.payload;
+      })
+      .addCase(signup.rejected, (state, action) => {
+        state.success = false;
+        state.isLoading = false;
+        state.isAuth = false;
+        state.error = action.error.message!;
+        state.statusCode = 409;
       });
   },
 });

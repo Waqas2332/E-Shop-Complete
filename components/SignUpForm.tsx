@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { signup } from "@/redux/actions/auth";
 import Spinner from "./Spinner";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,10 @@ function SignUpForm() {
 
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector((state) => state.auth.isLoading);
-
+  const message = useAppSelector((state) => state.auth.message);
+  const success = useAppSelector((state) => state.auth.success);
+  const error = useAppSelector((state) => state.auth.error);
+  const router = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,6 +29,18 @@ function SignUpForm() {
       [name]: value,
     });
   };
+
+  useEffect(() => {
+    if (success) {
+      router.push("/");
+    }
+  }, [dispatch, success]);
+
+  useEffect(() => {
+    if (message) {
+      toast.success(message);
+    }
+  }, [dispatch, message]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

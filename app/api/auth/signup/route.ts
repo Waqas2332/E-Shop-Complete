@@ -12,10 +12,12 @@ export async function POST(request: NextRequest) {
 
     const user = await User.findOne({ email: email });
     if (user) {
-      return NextResponse.json({
-        message: "User Alreay Exists",
-        status: 400,
-      });
+      return NextResponse.json(
+        {
+          message: "User Alreay Exists",
+        },
+        { status: 409 }
+      );
     }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -27,11 +29,13 @@ export async function POST(request: NextRequest) {
     });
     const res = await newUser.save();
     console.log(res);
-    return NextResponse.json({
-      message: "User Created Succesfully",
-      status: 201,
-    });
+    return NextResponse.json(
+      {
+        message: "User Created Succesfully",
+      },
+      { status: 201 }
+    );
   } catch (error: any) {
-    return NextResponse.json({ message: error.message, status: 500 });
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
