@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { signup } from "@/redux/actions/auth";
+import Spinner from "./Spinner";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +14,9 @@ function SignUpForm() {
     password: "",
     confirmPassword: "",
   });
+
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector((state) => state.auth.isLoading);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,12 +28,7 @@ function SignUpForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await axios.post("/api/auth/signup", formData);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(signup(formData));
   };
 
   return (
@@ -122,7 +123,7 @@ function SignUpForm() {
           </div>
           <div className="flex justify-center">
             <button type="submit" className="px-4 py-2 btn">
-              Register
+              {isLoading ? <Spinner /> : "Register"}
             </button>
           </div>
         </form>

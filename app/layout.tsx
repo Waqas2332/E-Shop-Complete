@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import "./globals.css";
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import Providers from "@/redux/providers";
 
 export const metadata: Metadata = {
   title: "E-Shop",
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Nav />
-        <main className="layout">{children}</main>
+        <Providers>
+          <Nav />
+          <main className="layout">{children}</main>
+        </Providers>
         <Footer />
       </body>
     </html>
