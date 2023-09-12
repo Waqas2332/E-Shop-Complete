@@ -34,6 +34,7 @@ function SignUpForm() {
     if (success) {
       router.push("/");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, success]);
 
   useEffect(() => {
