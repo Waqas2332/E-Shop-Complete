@@ -33,7 +33,9 @@ function SignUpForm() {
   useEffect(() => {
     if (success) {
       toast.success(message);
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, success]);

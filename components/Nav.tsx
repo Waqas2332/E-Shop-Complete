@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useAppSelector } from "@/redux/hooks";
+import Avatar from "./Avatar";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -13,6 +15,8 @@ const navigation = [
 ];
 
 export default function Nav() {
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -51,9 +55,13 @@ export default function Nav() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/signup" className="btn">
-            Log in
-          </Link>
+          {isAuth ? (
+            <Avatar />
+          ) : (
+            <Link href="/signup" className="btn">
+              Log in
+            </Link>
+          )}
         </div>
       </nav>
       <Dialog

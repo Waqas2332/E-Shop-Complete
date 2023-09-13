@@ -17,11 +17,7 @@
 .btn {
   background: hsla(136, 100%, 35%, 1);
 
-  background: linear-gradient(
-    360deg,
-    hsla(136, 100%, 35%, 1) 0%,
-    hsla(176, 43%, 20%, 1) 100%
-  );
+  background: linear-gradient(360deg, hsla(136, 100%, 35%, 1) 0%, #1d4946 100%);
 
   background: -moz-linear-gradient(
     360deg,
