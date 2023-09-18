@@ -44,7 +44,6 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
     response.cookies.set("token", token);
-    response.cookies.set("isAuth", "true");
     return response;
   } catch (error: any) {
     return NextResponse.json({ message: error.message, status: 500 });

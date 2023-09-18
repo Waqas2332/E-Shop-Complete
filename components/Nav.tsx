@@ -19,13 +19,12 @@ const navigation = [
 
 export default function Nav() {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
-  const cookies = useCookies();
   const dispatch = useAppDispatch();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const auth = cookies.get("isAuth");
-    if (auth === "true") {
+    const user = localStorage.getItem("user");
+    if (user) {
       dispatch(login());
     }
   }, []);
