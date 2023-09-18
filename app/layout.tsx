@@ -21,7 +21,6 @@ export default function RootLayout({
       <body>
         <Providers>
           <Nav />
-
           <main className="layout">{children}</main>
         </Providers>
         <ToastContainer />

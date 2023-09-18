@@ -99,7 +99,7 @@ function SigninForm() {
             <p>
               Dont Have an Account ? <br />
               <span>
-                <Link className="text-[#1d4946]" href="/signup">
+                <Link className="text-[#1d4946] underline" href="/signup">
                   Create New Account
                 </Link>
               </span>

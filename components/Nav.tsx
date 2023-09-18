@@ -4,8 +4,11 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Avatar from "./Avatar";
+import { useCookies } from "next-client-cookies";
+import { useEffect } from "react";
+import { login } from "@/redux/slices/auth";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -16,8 +19,16 @@ const navigation = [
 
 export default function Nav() {
   const isAuth = useAppSelector((state) => state.auth.isAuth);
-
+  const cookies = useCookies();
+  const dispatch = useAppDispatch();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const auth = cookies.get("isAuth");
+    if (auth === "true") {
+      dispatch(login());
+    }
+  }, []);
 
   return (
     <header className=" bg-white sticky inset-x-0  top-0 z-50">
@@ -102,7 +113,7 @@ export default function Nav() {
                 ))}
               </div>
               <div className="py-6">
-                <Link href="/signup" className="btn">
+                <Link href="/signin" className="btn">
                   Log in
                 </Link>
               </div>

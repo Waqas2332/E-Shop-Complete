@@ -20,6 +20,7 @@ export const signin = createAsyncThunk(
     try {
       const response = await axios.post("/api/auth/login", data);
       console.log(response);
+      localStorage.setItem("user", response.data.user.username);
       return response.data;
     } catch (error: any) {
       console.log(error);
