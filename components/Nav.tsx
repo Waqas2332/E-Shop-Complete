@@ -58,7 +58,7 @@ export default function Nav() {
           {isAuth ? (
             <Avatar />
           ) : (
-            <Link href="/signup" className="btn">
+            <Link href="/signin" className="btn">
               Log in
             </Link>
           )}

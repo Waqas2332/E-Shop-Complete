@@ -5,6 +5,7 @@ export type authInitialState = {
   isAuth: boolean;
   statusCode: number;
   error: string;
+  user: "";
 };
 
 export type registerationData = {
@@ -13,4 +14,9 @@ export type registerationData = {
   address: string;
   password: string;
   confirmPassword: string;
+};
+
+export type loginData = {
+  email: string;
+  password: string;
 };

@@ -1,11 +1,11 @@
-const Avatar = () => {
-  //   const firstLetter = username ? username.charAt(0).toUpperCase() : '';
+import { useAppSelector } from "@/redux/hooks";
 
-  //   const bgColor = color ? color : 'bg-blue-500';
+const Avatar = () => {
+  const user = useAppSelector((state) => state.auth.user);
 
   return (
     <div className="w-10 h-10 rounded-full flex items-center justify-center text-white bg-[#1d4946]">
-      W
+      {user.charAt(0)}
     </div>
   );
 };
