@@ -6,6 +6,7 @@ import { signin } from "@/redux/actions/auth";
 import Spinner from "./Spinner";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function SigninForm() {
   const [formData, setFormData] = useState({
@@ -93,6 +94,16 @@ function SigninForm() {
             <button type="submit" className="px-4 py-2 btn">
               {isLoading ? <Spinner /> : "Login"}
             </button>
+          </div>
+          <div className="text-center mt-4">
+            <p>
+              Dont Have an Account ? <br />
+              <span>
+                <Link className="text-[#1d4946]" href="/signup">
+                  Create New Account
+                </Link>
+              </span>
+            </p>
           </div>
         </form>
       </div>
