@@ -6,7 +6,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Avatar from "./Avatar";
-import { useCookies } from "next-client-cookies";
 import { useEffect } from "react";
 import { login } from "@/redux/slices/auth";
 
@@ -23,10 +22,11 @@ export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
+    const user = sessionStorage.getItem("user");
     if (user) {
       dispatch(login());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

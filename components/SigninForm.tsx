@@ -7,6 +7,7 @@ import Spinner from "./Spinner";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { login } from "@/redux/slices/auth";
 
 function SigninForm() {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ function SigninForm() {
   useEffect(() => {
     if (success) {
       toast.success(message);
+      dispatch(login());
       setTimeout(() => {
         router.push("/");
       }, 2000);
@@ -99,7 +101,10 @@ function SigninForm() {
             <p>
               Dont Have an Account ? <br />
               <span>
-                <Link className="text-[#1d4946] underline" href="/signup">
+                <Link
+                  className="text-[#1d4946] underline italic"
+                  href="/signup"
+                >
                   Create New Account
                 </Link>
               </span>

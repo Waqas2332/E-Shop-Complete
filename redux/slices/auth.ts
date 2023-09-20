@@ -52,7 +52,8 @@ const authSlice = createSlice({
         state.isAuth = true;
         state.error = "";
         state.message = action.payload?.message;
-        state.user = action.payload?.user.username;
+        state.user = action.payload?.user;
+        sessionStorage.setItem("user", JSON.stringify(state.user));
       })
       .addCase(signin.rejected, (state, action) => {
         state.success = false;
