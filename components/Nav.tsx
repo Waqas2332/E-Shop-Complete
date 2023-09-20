@@ -22,7 +22,7 @@ export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const user = sessionStorage.getItem("user");
+    const user = JSON.parse(sessionStorage.getItem("user")!);
     if (user) {
       dispatch(login());
     }

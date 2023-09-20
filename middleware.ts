@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
     request.nextUrl.pathname === "/signup";
 
   if (token && isPublicPath) {
-    return NextResponse.redirect(new URL("/", request.nextUrl));
+    return;
   }
   if (!token && !isPublicPath) {
     return NextResponse.redirect(new URL("/signin", request.nextUrl));
